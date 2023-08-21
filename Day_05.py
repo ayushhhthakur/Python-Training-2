@@ -192,21 +192,57 @@ if __name__ == '__main__':
 
 
 # linked list
-class LinkedList:    
-	def __init(...)    
-	def append(...)    
-	  def delete(self, value):
-        '''Delete the first node with a given value.'''
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def append(self, value):
+        '''Append a new node with the given value to the end.'''
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            return
         current = self.head
-        if current.value == value:
-            self.head = current.next
-        else:
-            while current:
-                if current.value == value:
-                    break
-                prev = current
-                current = current.next
-            if current == None:
-                return
-            prev.next = current.next
-            current = None
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def delete(self, value):
+        '''Delete the first node with a given value.'''
+        if self.head is None:
+            return
+
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+
+        current = self.head
+        prev = None
+        while current:
+            if current.value == value:
+                break
+            prev = current
+            current = current.next
+        
+        if current is None:
+            return
+        
+        prev.next = current.next
+        current = None
+
+# Example usage
+linked_list = LinkedList()
+linked_list.append(10)
+linked_list.append(20)
+linked_list.append(30)
+linked_list.delete(20)
+
+current = linked_list.head
+while current:
+    print(current.value)
+    current = current.next
