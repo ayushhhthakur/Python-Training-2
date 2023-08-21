@@ -125,7 +125,7 @@ def partition(array, low, high):
 # 	for x in array:
 # 		print(x, end=' ')
 
-# This code is contributed by Adnan Aliakbar
+
 
 # merge sort
 # Python program for implementation of MergeSort
@@ -189,4 +189,24 @@ if __name__ == '__main__':
 	print("\nSorted array is ")
 	printList(arr)
 
-# This code is contributed by Mayank Khanna
+
+
+# linked list
+class LinkedList:    
+	def __init(...)    
+	def append(...)    
+	  def delete(self, value):
+        '''Delete the first node with a given value.'''
+        current = self.head
+        if current.value == value:
+            self.head = current.next
+        else:
+            while current:
+                if current.value == value:
+                    break
+                prev = current
+                current = current.next
+            if current == None:
+                return
+            prev.next = current.next
+            current = None
