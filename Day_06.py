@@ -57,23 +57,42 @@
 
 
 #wap to check if a number is perfect or not
-def is_perfect_number(number):
-    if number <= 0:
-        return False
+# def is_perfect_number(number):
+#     if number <= 0:
+#         return False
     
-    divisors = [1] 
+#     divisors = [1] 
     
-    for i in range(2, int(number**0.5) + 1):
-        if number % i == 0:
-            divisors.append(i)
-            if i != number // i: 
-                divisors.append(number // i)
+#     for i in range(2, int(number**0.5) + 1):
+#         if number % i == 0:
+#             divisors.append(i)
+#             if i != number // i: 
+#                 divisors.append(number // i)
     
-    return sum(divisors) == number
+#     return sum(divisors) == number
 
+# num = int(input("Enter a number: "))
+
+# if is_perfect_number(num):
+#     print(num, "is a perfect number.")
+# else:
+#     print(num, "is not a perfect number.")
+
+#wap to check if a number is autobiographical or not
+def is_autobiographical(number):
+    count = [0] * 10  # Since digits are from 0 to 9
+
+    # Count the occurrences of each digit
+    for digit in str(number):
+        count[int(digit)] += 1
+
+    # Compare the counts with the digits
+    return count == [int(digit) for digit in str(number)]
+
+# Get input from the user
 num = int(input("Enter a number: "))
 
-if is_perfect_number(num):
-    print(num, "is a perfect number.")
+if is_autobiographical(num):
+    print(num, "is an autobiographical number.")
 else:
-    print(num, "is not a perfect number.")
+    print(num, "is not an autobiographical number.")
