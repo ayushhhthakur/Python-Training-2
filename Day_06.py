@@ -43,15 +43,39 @@
 
 
 #wap to check if a number is neon or not
-def is_neon_number(number):
-    square = number * number
-    digit_sum = sum(int(digit) for digit in str(square))
-    return digit_sum == number
+# def is_neon_number(number):
+#     square = number * number
+#     digit_sum = sum(int(digit) for digit in str(square))
+#     return digit_sum == number
 
-# Input from the user
+# # Input from the user
+# num = int(input("Enter a number: "))
+
+# if is_neon_number(num):
+#     print(f"{num} is a neon number.")
+# else:
+#     print(f"{num} is not a neon number.")
+
+
+#wap to check if a number is perfect or not
+def is_perfect_number(number):
+    if number <= 0:
+        return False
+    
+    divisors = [1]  # 1 is always a divisor
+    
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            divisors.append(i)
+            if i != number // i:  # Avoid adding duplicate divisors for perfect squares
+                divisors.append(number // i)
+    
+    return sum(divisors) == number
+
+# Get input from the user
 num = int(input("Enter a number: "))
 
-if is_neon_number(num):
-    print(f"{num} is a neon number.")
+if is_perfect_number(num):
+    print(num, "is a perfect number.")
 else:
-    print(f"{num} is not a neon number.")
+    print(num, "is not a perfect number.")
