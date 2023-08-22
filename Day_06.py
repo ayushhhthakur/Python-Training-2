@@ -1,4 +1,4 @@
-#write a code to check 
+#wap to check whether a number is sphenic or not
 def is_prime(n):
     if n <= 1:
         return False
