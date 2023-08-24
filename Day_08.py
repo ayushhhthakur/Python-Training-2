@@ -1,16 +1,14 @@
 def fill_water_tanks(buildings, r, unit_capacity):
-    # Create a list of tuples (building index, water availability)
     building_list = [(i, water) for i, water in enumerate(buildings)]
     
-    # Sort the list in descending order of water availability
     building_list.sort(key=lambda x: x[1], reverse=True)
     
     tanks_filled = 0
     filled_buildings = []
     
     for building, water in building_list:
-        tanks_needed = (water + unit_capacity - 1) // unit_capacity  # Calculate tanks needed for this building
-        tanks_to_fill = min(r - tanks_filled, tanks_needed)  # Fill as many tanks as possible
+        tanks_needed = (water + unit_capacity - 1) // unit_capacity 
+        tanks_to_fill = min(r - tanks_filled, tanks_needed) 
         
         if tanks_to_fill > 0:
             tanks_filled += tanks_to_fill
